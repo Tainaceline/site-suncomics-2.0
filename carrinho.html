@@ -48,7 +48,7 @@
             font-weight: bold;
         }
 
-        .botao-voltar {
+        .botao-voltar-desktop {
             display: flex;
             align-items: center;
             gap: 5px;
@@ -61,8 +61,27 @@
             font-size: 0.9em;
         }
 
-        .botao-voltar:hover {
+        .botao-voltar-desktop:hover {
             background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Botão Voltar Mobile - POSICIONADO FORA DO HEADER */
+        .botao-voltar-mobile {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            background-color: rgba(48, 48, 136, 0.9);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: background-color 0.3s;
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        .botao-voltar-mobile:hover {
+            background-color: rgba(48, 48, 136, 1);
         }
 
         #ipesquisa {
@@ -175,60 +194,58 @@
             line-height: 1.5;
         }
 
-        .produtos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+        /* Produtos no Carrinho */
+        .produtos-carrinho {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             margin-bottom: 40px;
         }
 
-        .produto-card {
+        .produto-item {
             background-color: #222222;
             border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 20px;
             display: flex;
-            flex-direction: column;
+            gap: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .produto-card:hover {
-            transform: translateY(-7px);
+        .produto-item:hover {
+            transform: translateY(-5px);
             box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
         }
 
         .produto-imagem {
-            height: 340px;
+            width: 120px;
+            height: 180px;
             overflow: hidden;
+            border-radius: 8px;
+            flex-shrink: 0;
         }
 
         .produto-imagem img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .produto-card:hover .produto-imagem img {
-            transform: scale(1.05);
         }
 
         .produto-info {
-            padding: 18px;
             flex: 1;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
         }
 
         .produto-info h3 {
             font-size: 1.4em;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: white;
         }
 
         .produto-info p {
             color: #a3a3a3;
-            margin-bottom: 18px;
-            flex: 1;
+            margin-bottom: 15px;
             font-size: 1em;
             line-height: 1.5;
         }
@@ -244,7 +261,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
         }
 
         .quantidade-controles {
@@ -291,28 +307,6 @@
 
         .botao-remover:hover {
             background-color: #b71c1c;
-        }
-
-        .botao-adicionar {
-            background-color: rgb(48, 48, 136);
-            color: white;
-            border: none;
-            padding: 12px 18px;
-            border-radius: 6px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-            width: 100%;
-            font-weight: 600;
-        }
-
-        .botao-adicionar:hover {
-            background-color: rgb(60, 60, 160);
-            transform: translateY(-2px);
-        }
-
-        .botao-adicionar:active {
-            transform: translateY(0);
         }
 
         /* Resumo do Carrinho */
@@ -421,10 +415,6 @@
             .carrinho-container {
                 max-width: 95%;
             }
-            
-            .produtos-grid {
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            }
         }
 
         @media (max-width: 900px) {
@@ -447,9 +437,12 @@
                 font-size: 1.5em;
             }
 
-            .botao-voltar {
-                font-size: 0.85em;
-                padding: 6px 10px;
+            .botao-voltar-desktop {
+                display: none; /* Esconde no mobile */
+            }
+
+            .botao-voltar-mobile {
+                display: flex; /* Mostra no mobile */
             }
 
             #ipesquisa {
@@ -466,17 +459,24 @@
                 font-size: 1.05em;
             }
 
-            .produtos-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            .produto-item {
+                flex-direction: column;
+                gap: 15px;
             }
 
             .produto-imagem {
-                height: 300px;
+                width: 100%;
+                height: 200px;
             }
             
             .mobile-menu {
                 top: 60px;
+            }
+
+            /* BOTÃO FINALIZAR MENOR NO MOBILE */
+            .botao-finalizar {
+                padding: 12px 20px;
+                font-size: 1em;
             }
         }
 
@@ -489,16 +489,18 @@
                 font-size: 1.8em;
             }
             
-            .produto-imagem {
-                height: 280px;
-            }
-            
             .resumo-carrinho {
                 padding: 20px;
             }
             
             .resumo-carrinho h2 {
                 font-size: 1.7em;
+            }
+
+            /* BOTÃO FINALIZAR AINDA MENOR EM CELULARES */
+            .botao-finalizar {
+                padding: 11px 18px;
+                font-size: 0.95em;
             }
         }
 
@@ -535,7 +537,7 @@
             }
             
             .produto-info {
-                padding: 15px;
+                padding: 0;
             }
             
             .produto-info h3 {
@@ -545,13 +547,15 @@
             footer {
                 padding: 15px;
             }
+
+            /* BOTÃO FINALIZAR MENOR EM CELULARES PEQUENOS */
+            .botao-finalizar {
+                padding: 10px 16px;
+                font-size: 0.9em;
+            }
         }
 
         @media (max-width: 360px) {
-            .produto-imagem {
-                height: 250px;
-            }
-            
             .carrinho-header h1 {
                 font-size: 1.6em;
             }
@@ -565,7 +569,7 @@
 <body>
     <header>
         <div class="header-left">
-            <a href="index.html" class="botao-voltar">
+            <a href="index.html" class="botao-voltar-desktop">
                 <span class="material-symbols-outlined">arrow_back</span>
                 Voltar
             </a>
@@ -624,6 +628,12 @@
             </a>
         </div>
     </header>
+
+    <!-- BOTÃO VOLTAR MOBILE - POSICIONADO FORA DO HEADER -->
+    <a href="index.html" class="botao-voltar-mobile">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Voltar para Página Inicial
+    </a>
     
     <div class="carrinho-container">
         <div class="carrinho-header">
@@ -631,7 +641,7 @@
             <p>Revise seus itens antes de finalizar a compra</p>
         </div>
         
-        <div class="produtos-grid" id="produtos-grid">
+        <div class="produtos-carrinho" id="produtos-carrinho">
             <!-- Os produtos serão inseridos aqui pelo JavaScript -->
         </div>
         
@@ -674,21 +684,24 @@
                         nome: "Killing Stalking",
                         preco: 60.00,
                         imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRREfxQfJ77uyvi4tNDSu4nz22spTWdr5WjHQ&s",
-                        quantidade: 0
+                        quantidade: 1,
+                        descricao: "Uma história psicológica intensa sobre obsessão e relacionamentos tóxicos."
                     },
                     {
                         id: 2,
                         nome: "Naruto",
                         preco: 69.00,
-                        imagem: "data:image/jpeg;base64,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",
-                        quantidade: 0
+                        imagem: "imagens/sem título.jpg",
+                        quantidade: 1,
+                        descricao: "A clássica jornada de um ninja em busca de reconhecimento e proteção de seus amigos."
                     },
                     {
                         id: 3,
                         nome: "Demon Slayer",
                         preco: 75.00,
-                        imagem: "https://m.media-amazon.com/images/I/81hXW+9n0xL._AC_UF1000,1000_QL80_.jpg",
-                        quantidade: 0
+                        imagem: "imagens/demon.jpg",
+                        quantidade: 1,
+                        descricao: "Uma emocionante aventura sobre caçadores de demônios em um Japão feudal sobrenatural."
                     }
                 ];
                 
@@ -706,32 +719,35 @@
             }
             
             renderizarProdutos() {
-                const grid = document.getElementById('produtos-grid');
-                grid.innerHTML = '';
+                const container = document.getElementById('produtos-carrinho');
+                container.innerHTML = '';
                 
                 this.produtos.forEach(produto => {
-                    const card = document.createElement('div');
-                    card.className = 'produto-card';
-                    card.innerHTML = `
-                        <div class="produto-imagem">
-                            <img src="${produto.imagem}" alt="${produto.nome}">
-                        </div>
-                        <div class="produto-info">
-                            <h3>${produto.nome}</h3>
-                            <p>Uma história emocionante que vai te prender do início ao fim.</p>
-                            <div class="produto-preco">R$ ${produto.preco.toFixed(2)}</div>
-                            <div class="produto-controles">
-                                <div class="quantidade-controles">
-                                    <button class="diminuir" data-id="${produto.id}">-</button>
-                                    <span class="quantidade">${produto.quantidade}</span>
-                                    <button class="aumentar" data-id="${produto.id}">+</button>
-                                </div>
-                                <button class="botao-remover" data-id="${produto.id}">Remover</button>
+                    if (produto.quantidade > 0) {
+                        const item = document.createElement('div');
+                        item.className = 'produto-item';
+                        item.innerHTML = `
+                            <div class="produto-imagem">
+                                <img src="${produto.imagem}" alt="${produto.nome}">
                             </div>
-                            <button class="botao-adicionar" data-id="${produto.id}">Adicionar ao Carrinho</button>
-                        </div>
-                    `;
-                    grid.appendChild(card);
+                            <div class="produto-info">
+                                <div>
+                                    <h3>${produto.nome}</h3>
+                                    <p>${produto.descricao}</p>
+                                    <div class="produto-preco">R$ ${produto.preco.toFixed(2)}</div>
+                                </div>
+                                <div class="produto-controles">
+                                    <div class="quantidade-controles">
+                                        <button class="diminuir" data-id="${produto.id}">-</button>
+                                        <span class="quantidade">${produto.quantidade}</span>
+                                        <button class="aumentar" data-id="${produto.id}">+</button>
+                                    </div>
+                                    <button class="botao-remover" data-id="${produto.id}">Remover</button>
+                                </div>
+                            </div>
+                        `;
+                        container.appendChild(item);
+                    }
                 });
             }
             
@@ -769,14 +785,6 @@
             }
             
             configurarEventos() {
-                // Eventos para os botões de adicionar
-                document.querySelectorAll('.botao-adicionar').forEach(botao => {
-                    botao.addEventListener('click', (e) => {
-                        const id = parseInt(e.target.getAttribute('data-id'));
-                        this.adicionarProduto(id);
-                    });
-                });
-                
                 // Eventos para os botões de aumentar quantidade
                 document.querySelectorAll('.aumentar').forEach(botao => {
                     botao.addEventListener('click', (e) => {
@@ -810,19 +818,21 @@
                 document.getElementById('hamburger').addEventListener('click', () => {
                     document.getElementById('mobileMenu').classList.toggle('active');
                 });
-            }
-            
-            adicionarProduto(id) {
-                const produto = this.produtos.find(p => p.id === id);
-                if (produto) {
-                    produto.quantidade += 1;
-                    this.atualizarInterface();
-                }
+                
+                // Fechar menu ao clicar fora
+                document.addEventListener('click', (e) => {
+                    const hamburger = document.getElementById('hamburger');
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    
+                    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+                        mobileMenu.classList.remove('active');
+                    }
+                });
             }
             
             aumentarQuantidade(id) {
                 const produto = this.produtos.find(p => p.id === id);
-                if (produto && produto.quantidade > 0) {
+                if (produto) {
                     produto.quantidade += 1;
                     this.atualizarInterface();
                 }
@@ -852,14 +862,8 @@
             
             finalizarCompra() {
                 if (this.total > 0) {
-                    alert(`Compra finalizada com sucesso!\nTotal: R$ ${this.total.toFixed(2)}`);
-                    
-                    // Limpar carrinho
-                    this.produtos.forEach(produto => {
-                        produto.quantidade = 0;
-                    });
-                    
-                    this.atualizarInterface();
+                    // Redirecionar para a página de pagamento
+                    window.location.href = 'pagamento.html';
                 } else {
                     alert('Seu carrinho está vazio!');
                 }
