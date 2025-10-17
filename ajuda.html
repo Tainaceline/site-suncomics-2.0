@@ -1,71 +1,219 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help</title>
+    <title>Ajuda - Sun.Comic</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="estilos/tela.css">
+    <link rel="stylesheet" href="estilos/pc.css">
+    <link rel="stylesheet" href="estilos/tela2.css">
     <style>
-    body{
-        width: 100vw;
-        height: 100vh;
-        background-color: #16151D;
-        overflow-x: hidden;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    main{
-        background-color: #222222;
-        width: 46%;
-        min-height: 500px;
-        margin-top: 70px;
-        margin: auto;
-        border-radius: 20px;
-    
-    
-   
-        padding: 0;
-      
-       color: #a3a3a3;
-    }li{
-        text-indent: 6px;
-        padding: 25px;
-        line-height: 30px;
- 
+        .help-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        main{
+            background-color: #222222;
+        }
 
+        .help-section {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-        font-size: 1.2em;
-    }
-    h1{
-        text-indent: 4px;
- 
-       border-bottom: 0.2px solid #635f5f;
+        .help-section h2 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
 
-     font-size: 1.2em;
-    }
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 15px;
+            max-height: 200px;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgb(48, 48, 136);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background 0.3s;
+        }
+
+        .back-button:hover {
+            background: #007bff;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <main>
-     <div>
-         <h1>Ajuda</h1>
-     </div>
-     <p>
-        <ul>
-            <li>
-                Nosso site é de compras 
-            </li> 
-            <li>
-                Se você tiver com  alguma dificuldade em como comprar, escolha o mangá,livro ou manhua clike na imagem e você sera mandando para pagina de compra <br>
-                Quando chegar você vera o botao de comprar, você serar mandando para pagina de pagamento depois é so escolher o metodo
-            </li>
-            <li> Caso você nao queira de imediato clike no botão com o carrinho e sua compra sera guardada, para acessaro carrinho va para a tela principal e clike no nome carrinho.</li>
-            <li> ATENÇÂO!!!  <br>
-                Em determinado manhua ou mangá ate mesmo livro tem a opção de escolher o volume ou parte do livro.
+    <header>
+        <div id="logo">Sun.Comic</div>
+        <span id="icons" class="material-symbols-outlined" onclick="clicar()">
+            menu
+        </span>
+        <menu id="menu">
+            <ul>
+                <li class="l"><a href="form.html" target="_blank">Login</a></li>
+                <li class="l"><a href="carrinho.html" target="_blank">Carrinho</a></li>
+                <li class="l"><a href="ajuda.html">Ajuda?</a></li>
+                <li><a class="manhua" href="manhua.html">Manhua</a></li>
+                <li><a class="mangas" href="manga.html">Mangás</a></li>
+                <li><a class="livros" href="livro.html">Livros</a></li>
+                <li><a class="lidos" href="votacao.html">Votação</a></li>
+            </ul>
+        </menu>
+
+        <div class="pc">
+            <span id="card" class="material-symbols-outlined">shopping_cart</span>
+            <div id="car"><a href="carrinho.html">Carrinho</a></div>
+            
+            <span id="card2" class="material-symbols-outlined">person</span>
+            <div id="log"><a href="form.html">Login</a></div>
+
+            <span id="card3" class="material-symbols-outlined">help</span>
+            <div id="help"><a href="ajuda.html">Ajuda?</a></div>
+        </div>
+
+        <form action="" method="post">
+            <p>
+                <label for="ipesquisa"></label>
+                <input type="text" name="pesquisa" id="ipesquisa" placeholder="Procurar por" size="24">
             </p>
-            </li>
-        </ul>
-      
-         <br>
-        <br>
-        
+        </form>
+    </header>
+
+    <main>
+        <div class="help-container">
+            <a href="index.html" class="back-button">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Voltar para Loja
+            </a>
+
+            <div class="help-section">
+                <h2>Perguntas Frequentes</h2>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Como faço para comprar?</h3>
+                    <div class="faq-answer">
+                        <p>Navegue pelos produtos, clique em "Comprar" e siga o processo de checkout. Você precisará criar uma conta ou fazer login para finalizar a compra.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Quais são as formas de pagamento?</h3>
+                    <div class="faq-answer">
+                        <p>Aceitamos cartão de crédito, débito, PIX e boleto bancário.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Qual o prazo de entrega?</h3>
+                    <div class="faq-answer">
+                        <p>O prazo varia de 5 a 15 dias úteis, dependendo da sua localização.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Como rastrear meu pedido?</h3>
+                    <div class="faq-answer">
+                        <p>Após a confirmação do pagamento, você receberá um código de rastreamento por email.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="help-section">
+                <h2>Contato</h2>
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <span class="material-symbols-outlined">mail</span>
+                        <h3>Email</h3>
+                        <p>suporte@suncomic.com</p>
+                    </div>
+                    <div class="contact-card">
+                        <span class="material-symbols-outlined">phone</span>
+                        <h3>Telefone</h3>
+                        <p>(11) 9999-9999</p>
+                    </div>
+                    <div class="contact-card">
+                        <span class="material-symbols-outlined">schedule</span>
+                        <h3>Horário de Atendimento</h3>
+                        <p>Segunda a Sexta: 9h às 18h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id="cor2">
+            <a id="termodu" href="termo.html" target="_blank">Termos de Uso</a>
+        </div>
+        <p>Direitos autorais e marcas para mangás, e outros materiais promocionais são mantidos por seus respectivos proprietários e a sua utilização é permitida nos termos da cláusula de uso justo da Lei de Direitos Autorais Americana.</p>
+    </footer>
+
+    <script>
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Menu functionality (reuse from main page)
+        function clicar() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
