@@ -1,0 +1,26 @@
+:root{ --accent: #303088; }
+.slider-outer{
+  width:100%; max-width:1100px; margin:24px auto; position:relative; overflow:hidden; border-radius:10px;
+}
+.slider-track{ display:flex; transition:transform .55s cubic-bezier(.22,.9,.35,1); }
+.slide-item{ flex:0 0 100%; display:flex; gap:18px; align-items:center; padding:18px; box-sizing:border-box; min-height:260px; }
+.slide-visual{ flex:0 0 220px; height:100%; display:flex; align-items:center; justify-content:center; }
+.slide-visual img{ width:100%; height:100%; object-fit:cover; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,.35); }
+.slide-content{ color:#fff; z-index:2; max-width:620px; display:flex; flex-direction:column; justify-content:center; gap:10px; }
+.slide-content h2{ font-size:1.8rem; margin:0 0 8px }
+.slide-content p{ margin:0 0 12px; opacity:.95 }
+.btn-primary{ background:var(--accent); color:#fff; padding:10px 16px; border-radius:8px; text-decoration:none; font-weight:600 }
+.slide-actions{ display:flex; gap:12px; align-items:center }
+.slider-button{ position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,.45); color:#fff; border:0; width:44px; height:44px; border-radius:8px; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:5 }
+.slider-button.prev{ left:12px }
+.slider-button.next{ right:12px }
+.slider-nav{ position:absolute; bottom:12px; right:12px; display:flex; gap:8px; z-index:6 }
+.slider-dot{ width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,.3); border:0; cursor:pointer }
+.slider-dot.active{ background:#fff }
+
+.card-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; margin-top:12px }
+.card{ display:block; background:#0f0f12; padding:6px; border-radius:8px; overflow:hidden; aspect-ratio:2/3 }
+.card img{ width:100%; height:100%; object-fit:cover; border-radius:6px; display:block }
+
+@media(max-width:900px){ .card-grid{ grid-template-columns: repeat(3,1fr) } .slide-visual{ display:none } .slide-content{ max-width:100% } }
+@media(max-width:520px){ .card-grid{ grid-template-columns: repeat(2,1fr) } .slide-item{ padding:10px; min-height:180px } .slide-content p{ display:none } }
