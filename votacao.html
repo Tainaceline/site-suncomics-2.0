@@ -48,7 +48,7 @@
             font-weight: bold;
         }
 
-        .botao-voltar {
+        .botao-voltar-desktop {
             display: flex;
             align-items: center;
             gap: 5px;
@@ -61,8 +61,27 @@
             font-size: 0.9em;
         }
 
-        .botao-voltar:hover {
+        .botao-voltar-desktop:hover {
             background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Botão Voltar Mobile - POSICIONADO FORA DO HEADER */
+        .botao-voltar-mobile {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            background-color: rgba(48, 48, 136, 0.9);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: background-color 0.3s;
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        .botao-voltar-mobile:hover {
+            background-color: rgba(48, 48, 136, 1);
         }
 
         #ipesquisa {
@@ -196,15 +215,21 @@
             box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
         }
 
+        /* IMAGENS REDUZIDAS */
         .opcao-imagem {
-            height: 340px;
+            height: 280px;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1a1a1a;
         }
 
         .opcao-imagem img {
-            width: 100%;
+            width: auto;
             height: 100%;
-            object-fit: cover;
+            max-width: 100%;
+            object-fit: contain;
             transition: transform 0.5s;
         }
 
@@ -390,9 +415,12 @@
                 font-size: 1.5em;
             }
 
-            .botao-voltar {
-                font-size: 0.85em;
-                padding: 6px 10px;
+            .botao-voltar-desktop {
+                display: none; /* Esconde no mobile */
+            }
+
+            .botao-voltar-mobile {
+                display: flex; /* Mostra no mobile */
             }
 
             #ipesquisa {
@@ -415,11 +443,17 @@
             }
 
             .opcao-imagem {
-                height: 300px;
+                height: 240px;
             }
             
             .mobile-menu {
                 top: 60px;
+            }
+
+            /* BOTÃO VOTAR MENOR NO MOBILE */
+            .botao-votar {
+                padding: 10px 15px;
+                font-size: 0.95em;
             }
         }
 
@@ -433,7 +467,7 @@
             }
             
             .opcao-imagem {
-                height: 280px;
+                height: 220px;
             }
             
             .resultados {
@@ -442,6 +476,12 @@
             
             .resultados h2 {
                 font-size: 1.7em;
+            }
+
+            /* BOTÃO VOTAR AINDA MENOR EM CELULARES */
+            .botao-votar {
+                padding: 9px 14px;
+                font-size: 0.9em;
             }
         }
 
@@ -488,11 +528,17 @@
             footer {
                 padding: 15px;
             }
+
+            /* BOTÃO VOTAR MENOR EM CELULARES PEQUENOS */
+            .botao-votar {
+                padding: 8px 12px;
+                font-size: 0.85em;
+            }
         }
 
         @media (max-width: 360px) {
             .opcao-imagem {
-                height: 250px;
+                height: 200px;
             }
             
             .votacao-header h1 {
@@ -508,7 +554,7 @@
 <body>
     <header>
         <div class="header-left">
-            <a href="index.html" class="botao-voltar">
+            <a href="index.html" class="botao-voltar-desktop">
                 <span class="material-symbols-outlined">arrow_back</span>
                 Voltar
             </a>
@@ -567,6 +613,12 @@
             </a>
         </div>
     </header>
+
+    <!-- BOTÃO VOLTAR MOBILE - POSICIONADO FORA DO HEADER -->
+    <a href="index.html" class="botao-voltar-mobile">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Voltar para Página Inicial
+    </a>
     
     <div class="votacao-container">
         <div class="votacao-header">
