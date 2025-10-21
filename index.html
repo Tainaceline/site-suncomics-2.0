@@ -5,451 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sun.Comic - Página Principal</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+    <link rel="stylesheet" href="estilos/main.css">
 
-        body {
-            background-color: #16151D;
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Header */
-        header {
-            background-color: rgb(48, 48, 136);
-            width: 100%;
-            height: 65px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 18px;
-            box-sizing: border-box;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        #logo {
-            color: white;
-            font-size: 1.6em;
-            font-weight: bold;
-        }
-
-        #ipesquisa {
-            padding: 7px 14px;
-            border-radius: 18px;
-            border: none;
-            width: 220px;
-            font-size: 0.95em;
-        }
-
-        .pc {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .pc a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: opacity 0.3s;
-            font-size: 1em;
-        }
-
-        .pc a:hover {
-            opacity: 0.8;
-        }
-
-        .material-symbols-outlined {
-            font-size: 1.3em;
-        }
-
-        /* Menu Hamburger */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 4px;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            border-radius: 2px;
-            transition: 0.3s;
-        }
-
-        .mobile-menu {
-            display: none;
-            position: absolute;
-            top: 65px;
-            right: 0;
-            background-color: rgb(48, 48, 136);
-            width: 200px;
-            border-radius: 0 0 0 10px;
-            box-shadow: -2px 5px 10px rgba(0,0,0,0.3);
-            z-index: 99;
-        }
-
-        .mobile-menu.active {
-            display: block;
-        }
-
-        .mobile-menu a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 15px 20px;
-            color: white;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            transition: background-color 0.3s;
-        }
-
-        .mobile-menu a:hover {
-            background-color: rgba(255,255,255,0.1);
-        }
-
-        .mobile-menu a:last-child {
-            border-bottom: none;
-        }
-
-        /* Menu de Navegação Inferior */
-        .nav-menu {
-            background-color: #222222;
-            padding: 12px 0;
-            border-bottom: 2px solid rgb(48, 48, 136);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            padding: 0 20px;
-        }
-
-        .nav-item {
-            color: white;
-            text-decoration: none;
-            font-size: 1.05em;
-            padding: 8px 16px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .nav-item:hover {
-            background-color: rgba(48, 48, 136, 0.3);
-        }
-
-        .nav-item.active {
-            background-color: rgb(48, 48, 136);
-        }
-
-        /* Conteúdo Principal (mantenha seu CSS existente) */
-        .slider{
-            width: 65%;
-            height: 100%;
-            overflow: hidden;
-            margin: auto;
-            margin-top: 30px;
-        }
-
-        figure{
-            position: relative;
-            left: 0;
-            width: 400%;
-            animation: 17s slide infinite;
-        }
-
-        .slide{
-            position: relative;
-            width: 25%;
-            background: url('https://i1.wp.com/lightnovelbrasil.com/wp-content/uploads/2021/07/download.jpg?resize=370,500') center top / cover no-repeat;
-            height: 500px; 
-            background-repeat: no-repeat;
-            float: left;
-        }
-
-        .slide h1{
-            position: relative;
-            font-size: 3em;
-            color: white;
-            width: 100%;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .slide1{
-            background: url('https://flowermangas.com/wp-content/uploads/a-stepmothers-marchen-1596.jpg') center top / cover no-repeat;
-            width: 25%;
-            float: left;
-            height: 500px; 
-            position: relative;
-        }
-
-        .slide2{
-            background: url('https://i0.wp.com/metagalaxia.com.br/wp-content/uploads/2024/02/Frieren-e-a-Jornada-para-o-Alem.webp?resize=774%2C489') left, top ;
-            background-repeat: no-repeat;
-            background-size: cover;
-            width: 25%;
-            float: left;
-            height: 500px; 
-            position: relative;
-        }
-
-        .slide3{
-            background: url("https://m.media-amazon.com/images/I/41xVhz5sL1L._SY445_SX342_.jpg") center top / cover no-repeat;
-            width: 25%;
-            float: left;
-            height: 500px; 
-            position: relative;
-        }
-
-        .slide::before,
-        .slide1::before,
-        .slide2::before,
-        .slide3::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8); 
-        }
-
-        img {
-            width:  221px;
-            height: auto;
-            position: relative;
-            z-index: 1;
-            left:91px;
-            top: 70px;
-        }
-
-        /* Seções Populares e Lançamentos */
-        #popular, #lancamento {
-            background-color: #222222;
-            width: 70%;
-            margin: 30px auto;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        #cor {
-            background-color: rgb(48, 48, 136);
-            height: 50px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            padding-left: 20px;
-        }
-
-        #cor p {
-            color: white;
-            font-size: 1.3em;
-            font-weight: bold;
-        }
-
-        #caixa {
-            width: 100%;
-            height: 180px;
-            background-color: #222222;
-            display: flex;
-            padding: 20px;
-            overflow-x: auto;
-            gap: 20px;
-        }
-
-        #caixa div {
-            min-width: 120px;
-            height: 160px;
-            flex-shrink: 0;
-        }
-
-        #caixa img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 5px;
-            transition: transform 0.3s;
-            position: static;
-        }
-
-        #caixa img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #222222;
-            width: 100%;
-            padding: 18px;
-            margin-top: 45px;
-        }
-
-        #cor2 {
-            background-color: rgb(48, 48, 136);
-            height: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 5px;
-            margin-bottom: 15px;
-        }
-
-        #termodu {
-            color: white;
-            text-decoration: none;
-            font-size: 1.05em;
-        }
-
-        footer p {
-            text-align: center;
-            color: #a3a3a3;
-            font-size: 0.95em;
-            line-height: 1.5;
-            max-width: 750px;
-            margin: 0 auto;
-        }
-
-        /* Responsividade */
-        @media (max-width: 1024px) {
-            .slider, #popular, #lancamento {
-                width: 85%;
-            }
-        }
-
-        @media (max-width: 900px) {
-            .pc {
-                display: none;
-            }
-            
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-menu {
-                display: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header {
-                height: 60px;
-                padding: 0 15px;
-            }
-
-            #logo {
-                font-size: 1.5em;
-            }
-
-            #ipesquisa {
-                width: 180px;
-                font-size: 0.9em;
-                padding: 6px 12px;
-            }
-
-            .slider {
-                width: 90%;
-            }
-
-            .slide, .slide1, .slide2, .slide3 {
-                height: 400px;
-            }
-
-            #popular, #lancamento {
-                width: 90%;
-            }
-            
-            .mobile-menu {
-                top: 60px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            #ipesquisa {
-                width: 150px;
-            }
-            
-            .slide, .slide1, .slide2, .slide3 {
-                height: 350px;
-            }
-
-            #caixa {
-                height: 150px;
-                padding: 15px;
-            }
-
-            #caixa div {
-                min-width: 100px;
-                height: 130px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                flex-wrap: wrap;
-                height: auto;
-                padding: 12px;
-                gap: 10px;
-            }
-            
-            #logo {
-                margin-bottom: 0;
-            }
-            
-            #ipesquisa {
-                width: 100%;
-                order: 3;
-                margin-top: 8px;
-            }
-            
-            .hamburger {
-                order: 2;
-            }
-            
-            .slider {
-                margin-top: 20px;
-            }
-            
-            .slide, .slide1, .slide2, .slide3 {
-                height: 300px;
-            }
-
-            footer {
-                padding: 15px;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .slide, .slide1, .slide2, .slide3 {
-                height: 250px;
-            }
-
-            #caixa {
-                height: 130px;
-            }
-
-            #caixa div {
-                min-width: 90px;
-                height: 110px;
-            }
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -520,70 +77,116 @@
     <!-- Conteúdo Principal -->
     <main>
         <div class="slider">
-            <figure>
+            <div class="slider-container">
                 <div class="slide">
-                    <div id="img2">
-                        <img id="img2" src="https://i1.wp.com/lightnovelbrasil.com/wp-content/uploads/2021/07/download.jpg?resize=370,500" alt="">
-                        <h1 id="text">Solo Leveling</h1>
-                        <p id="text2"> Sung Jinwoo (Aleks Le), um caçador fraco, sobrevive a uma batalha mortal e é escolhido pelo misterioso 'Sistema', que lhe concede poderes incríveis, transformando-o no caçador mais forte.</p>
-                        <a id="botao1" href="telacomprar3.html"> Comprar</a> <p id="preço1"> R$170</p>
+                    <img src="imagens/816hywlmu-L.jpg" alt="Solo Leveling">
+                    <div class="slide-content">
+                        <h2>Solo Leveling</h2>
+                        <p>Sung Jinwoo, um caçador fraco, sobrevive a uma batalha mortal e é escolhido pelo misterioso 'Sistema', que lhe concede poderes incríveis, transformando-o no caçador mais forte.</p>
+                        <a href="telacomprar3.html" class="buy-button">Comprar - R$170</a>
                     </div>
-                </div>
-            
-                <div class="slide2">
-                    <img src="https://m.media-amazon.com/images/I/61L3BX2nLfL._AC_UF1000,1000_QL80_.jpg" alt="">
-                    <h1 id="titulof">Frieren</h1>
-                    <p id="text3"> Frieren era um membro da party do herói que derrotou o Rei Demônio. Uma maga elfa, há algo sobre ela que a distingue dos outros membros.</p>
-                    <a id="botao3" href="telacomprar.html"> Comprar</a> <p id="preço2"> R$50</p>
                 </div>
                 
-                <div class="slide1">
-                    <div id="img2">
-                        <img id="img2"  src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQA9vDF-3bmUNNyghSk3BJzKHpDVu9uux_yPIOWkzGyWA2RXyVu" alt="">
-                        <h1 id="titulo7">A Stepmother's Märchen</h1>
-                        <p id="titulo9"> A viúva de ferro, a viúva-aranha, a caçadora de homens, a bruxa do castelo de Neuschwanstein, a vergonha das nobres damas...</p>
-                        <a id="botao2" href="telacomprar6.html"> Comprar</a> <p id="preço"> R$200</p>
+                <div class="slide">
+                    <img src="https://m.media-amazon.com/images/I/61L3BX2nLfL._AC_UF1000,1000_QL80_.jpg" alt="Frieren">
+                    <div class="slide-content">
+                        <h2>Frieren</h2>
+                        <p>Frieren era um membro da party do herói que derrotou o Rei Demônio. Uma maga elfa, há algo sobre ela que a distingue dos outros membros.</p>
+                        <a href="telacomprar.html" class="buy-button">Comprar - R$50</a>
                     </div>
                 </div>
-              
-                <div class="slide3">
-                   <img src="https://m.media-amazon.com/images/I/41xVhz5sL1L._SY445_SX342_.jpg "alt="">
-                   <h1 id="titulo8">7 Maridos de Evelyn Hugo</h1>
-                   <p id="text2"> Evelyn Hugo é uma mulher de armas, excêntrica e arrebatadora. Uma mulher que entre os anos 50 e 70 fez de tudo para poder realizar os seus sonhos.</p>
-                   <a id="botao1" href="telacomprar2.html"> Comprar</a> <p id="preço1"> R$80</p>
+                
+                <div class="slide">
+                    <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQA9vDF-3bmUNNyghSk3BJzKHpDVu9uux_yPIOWkzGyWA2RXyVu" alt="A Stepmother's Märchen">
+                    <div class="slide-content">
+                        <h2>A Stepmother's Märchen</h2>
+                        <p>A viúva de ferro, a viúva-aranha, a caçadora de homens, a bruxa do castelo de Neuschwanstein, a vergonha das nobres damas...</p>
+                        <a href="telacomprar6.html" class="buy-button">Comprar - R$200</a>
+                    </div>
                 </div>
-            </figure>
-        </div>
-
-        <div id="popular">
-            <div id="cor">
-                <p>Popular</p>
-            </div>
-            <div id="caixa">
-                <div><a href="telacomprar2.html"><img src="https://m.media-amazon.com/images/I/41xVhz5sL1L._SY445_SX342_.jpg" alt=""></a></div>
-                <div><a href="#"><img src="https://flowermanga.net/wp-content/uploads/2024/04/me-tornei-a-familia-do-vilao.jpg" alt=""></a></div>
-                <div><a href="#"><img src="https://flowermanga.net/wp-content/uploads/2024/04/swordmasters-youngest-son.jpg" alt=""></a></div>
-                <div><a href="#"><img src="imagens/a-promessa-nao-e-minha-175x238.jpg" alt=""></a></div>
-                <div><a href="telacomprar3.html"><img src='imagens/senhorita-celebridade-175x238.jpeg' alt=""></a></div>
-                <div><a href="telacomprar.html"><img src="https://m.media-amazon.com/images/I/61L3BX2nLfL._AC_UF1000,1000_QL80_.jpg" alt=""></a></div>
-                <div><a href="telacomprar.html"><img src="imagens/a-princesa-marcou-o-traidor-175x238.jpg" alt=""></a></div>
+                
+                <div class="slide">
+                    <img src="https://m.media-amazon.com/images/I/41xVhz5sL1L._SY445_SX342_.jpg" alt="Os Sete Maridos de Evelyn Hugo">
+                    <div class="slide-content">
+                        <h2>Os Sete Maridos de Evelyn Hugo</h2>
+                        <p>Evelyn Hugo é uma mulher de armas, excêntrica e arrebatadora. Uma mulher que entre os anos 50 e 70 fez de tudo para poder realizar os seus sonhos.</p>
+                        <a href="telacomprar2.html" class="buy-button">Comprar - R$80</a>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div id="lancamento">
-            <div id="cor">
-                <p>Lançamentos</p>
+        <section class="section" id="popular">
+            <div class="section-header">
+                <h2>Popular</h2>
             </div>
-            <div id="caixa">
-                <div><a href="telacomprar4.html"><img src="https://flowermanga.net/wp-content/uploads/2024/04/operacao-amor-verdadeiro.jpg" alt=""></a></div>
-                <div><a href="#"><img src="imagens/uma-dama-inapropriada-175x238.jpg" alt=""></a></div>
-                <div><a href="telacomprar7.html"><img src="https://m.media-amazon.com/images/I/51bC3R2x-iL._SY445_SX342_.jpg" alt=""></a></div>
-                <div><a href="#"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQA9vDF-3bmUNNyghSk3BJzKHpDVu9uux_yPIOWkzGyWA2RXyVu" alt=""></a></div>
-                <div><a href="#"><img src="https://m.media-amazon.com/images/I/41MRn6hy8-L._SY445_SX342_.jpg" alt=""></a></div>
-                <div><a href="#"><img src="https://flowermanga.net/wp-content/uploads/2024/04/vossa-majestade-por-favor-nao-me-mate-novamente.jpg" alt=""></a></div>
-                 <div><a href="#"><img src="imagens/eu-pensei-que-tinha-um-limite-de-tempo-175x238.jpg" alt=""></a></div>
+            <div class="card-container">
+                <a href="telacomprar2.html" class="card">
+                    <img src="https://m.media-amazon.com/images/I/41xVhz5sL1L._SY445_SX342_.jpg" alt="Os Sete Maridos de Evelyn Hugo">
+                    <div class="card-overlay">
+                        <h3>Os Sete Maridos de Evelyn Hugo</h3>
+                        <p>R$80,00</p>
+                    </div>
+                </a>
+                <a href="telacomprar4.html" class="card">
+                    <img src="https://flowermanga.net/wp-content/uploads/2024/04/me-tornei-a-familia-do-vilao.jpg" alt="Me Tornei a Família do Vilão">
+                    <div class="card-overlay">
+                        <h3>Me Tornei a Família do Vilão</h3>
+                        <p>R$45,00</p>
+                    </div>
+                </a>
+                <a href="telacomprar5.html" class="card">
+                    <img src="https://flowermanga.net/wp-content/uploads/2024/04/swordmasters-youngest-son.jpg" alt="O Filho Mais Novo do Mestre da Espada">
+                    <div class="card-overlay">
+                        <h3>O Filho Mais Novo do Mestre da Espada</h3>
+                        <p>R$55,00</p>
+                    </div>
+                </a>
+                <a href="telacomprar.html" class="card">
+                    <img src="https://m.media-amazon.com/images/I/61L3BX2nLfL._AC_UF1000,1000_QL80_.jpg" alt="Frieren">
+                    <div class="card-overlay">
+                        <h3>Frieren</h3>
+                        <p>R$50,00</p>
+                    </div>
+                </a>
             </div>
-        </div>
+        </section>
+
+        <section class="section" id="lancamentos">
+            <div class="section-header">
+                <h2>Lançamentos</h2>
+            </div>
+            <div class="card-container">
+                <a href="telacomprar4.html" class="card">
+                    <img src="https://flowermanga.net/wp-content/uploads/2024/04/operacao-amor-verdadeiro.jpg" alt="Operação: Amor Verdadeiro">
+                    <div class="card-overlay">
+                        <h3>Operação: Amor Verdadeiro</h3>
+                        <p>R$42,00</p>
+                    </div>
+                </a>
+                <a href="telacomprar7.html" class="card">
+                    <img src="https://m.media-amazon.com/images/I/51bC3R2x-iL._SY445_SX342_.jpg" alt="É Assim que Acaba">
+                    <div class="card-overlay">
+                        <h3>É Assim que Acaba</h3>
+                        <p>R$59,90</p>
+                    </div>
+                </a>
+                <a href="telacomprar6.html" class="card">
+                    <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQA9vDF-3bmUNNyghSk3BJzKHpDVu9uux_yPIOWkzGyWA2RXyVu" alt="A Stepmother's Märchen">
+                    <div class="card-overlay">
+                        <h3>A Stepmother's Märchen</h3>
+                        <p>R$200,00</p>
+                    </div>
+                </a>
+                <a href="telacomprar8.html" class="card">
+                    <img src="https://flowermanga.net/wp-content/uploads/2024/04/vossa-majestade-por-favor-nao-me-mate-novamente.jpg" alt="Vossa Majestade, Por Favor Não Me Mate Novamente">
+                    <div class="card-overlay">
+                        <h3>Vossa Majestade, Por Favor Não Me Mate Novamente</h3>
+                        <p>R$45,00</p>
+                    </div>
+                </a>
+            </div>
+        </section>
     </main>
     
     <footer>
@@ -593,24 +196,6 @@
         <p>Direitos autorais e marcas para mangás, e outros materiais promocionais são mantidos por seus respectivos proprietários e a sua utilização é permitida nos termos da cláusula de uso justo da Lei de Direitos Autorais Americana.</p>
     </footer>
 
-    <script>
-        // Menu Hamburger
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        hamburger.addEventListener('click', function() {
-            mobileMenu.classList.toggle('active');
-            // Animação do hamburger
-            this.classList.toggle('active');
-        });
-
-        // Fechar menu ao clicar fora
-        document.addEventListener('click', function(event) {
-            if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
-                mobileMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-            }
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
