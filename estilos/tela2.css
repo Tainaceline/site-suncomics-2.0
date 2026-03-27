@@ -1,0 +1,204 @@
+@media screen and  (min-width:600px )and (max-width:768px) {
+    *{
+        margin: 0px;
+        padding: 0px;
+        font-family:  Helvetica, sans-serif;
+    }
+    
+    body{
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+       
+      
+    }
+    
+    
+    
+    
+    header {
+        background-color: rgb(48, 48, 136);
+        height: 12%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 4px;
+        position: relative;
+    }
+    
+    
+    #menu {
+        display: none;
+        position: absolute;
+       
+       
+        top: 70px;
+        z-index: 9999;
+        
+    
+       
+       
+        width: 134px;
+        
+        background-color: rgb(29, 28, 28);
+      
+    }
+    
+    #menu a {
+        display: block;
+        text-decoration: none;
+        color: white;
+        padding-top: 16px;
+        background-color: rgb(29, 28, 28);
+      
+        font-size: 1.1em;
+        text-indent: 13px;
+        
+     
+       
+    }
+     
+    
+    
+    #menu a:active {
+        transform: translate(2px, 2px);
+    }
+    
+    #menu a:hover {
+        background-color: grey;
+    }
+    
+    
+    #icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(29, 27, 27);
+        color: white;
+        height: 40px;
+        width: 30px;
+        
+     
+    }
+    
+    
+    #logo {
+        color: white;
+        font-size: 1.5em;
+        display: inline-block;
+    }
+    
+    
+    #ipesquisa {
+        margin: auto;
+        display: inline-block;
+        padding: 5px;
+        border-radius: 15px;
+        margin-top: 3px;
+        
+    }
+    main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .telain{
+        background: url(https://i1.wp.com/lightnovelbrasil.com/wp-content/uploads/2021/07/download.jpg?resize=370,500
+        ) center top / cover no-repeat;
+     
+        
+        width: 100%;
+        height: 230px;
+    
+        position: relative; 
+        
+        
+       
+      
+       
+    
+       
+       
+    }
+    .telain::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: inherit; 
+        background: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+        
+        
+        
+        
+    }
+    
+    img {
+        width: 120px;
+        height: 168px;
+        left: 0px;
+       
+      
+        position: relative; 
+        padding: 20px;
+        
+    }
+    
+    #text{
+        text-align: center;
+        margin-left: 117px;
+        font-size: 1.8em;
+        
+      
+        color: white;
+        position: relative;
+        bottom: 191px;
+       
+      
+    }
+    #text2{
+        text-align: center;
+        
+      
+        color: white;
+        position: relative;
+        bottom: 182px;
+        width: 205px;
+        line-height: 1em ;
+        left: 152px;
+        font-size: 0.9em;
+        
+    
+    }
+    #botao1{
+        width: 168px;
+        display: block;
+        margin: auto;
+        position: relative;
+        bottom: 166px;
+        right: -40px;
+        height: 26px;
+        background-color: rgb(48, 48, 136);
+        color: white;
+        text-align: center;
+        line-height: 26px;
+        text-decoration: none;
+        border-radius: 13px;
+        
+           }
+     a:active{
+               transform: translate(2px,2px);
+           }
+       
+    
+    
+    
+    
+        
+    
+    
+    
+}

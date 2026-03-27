@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slie</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }.slider{
+            width: 65%;
+            height: 100%;
+            overflow: hidden;
+            margin: auto;
+        }figure{
+            position: relative;
+            left: 0;
+            width: 400%;
+            animation: 10s slide infinite;
+           
+           
+          
+        }.slide{
+            position: relative;
+            width: 25%;
+            background: url('https://i1.wp.com/lightnovelbrasil.com/wp-content/uploads/2021/07/download.jpg?resize=370,500') center top / cover no-repeat;
+            
+          
+            height: 500px; 
+            background-repeat: no-repeat;
+        
+            float: left;
+          
+           
+        }.slide h1{
+            position: relative;
+            font-size: 3em;
+            color: white;
+            width: 100%;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .slide1{
+            background: url('https://flowermangas.com/wp-content/uploads/a-stepmothers-marchen-1596.jpg') center top / cover no-repeat;
+            width: 25%;
+            float: left;
+            height: 500px; 
+            position: relative;
+        
+            
+        }.slide2{
+            background: url('https://img.mangaschan.com/uploads/manga-images/s/sousou-no-frieren/Sousou%20no%20Frieren%20mangaschan.webp') right center / cover no-repeat;
+            width: 25%;
+            float: left;
+            height: 500px; 
+            position: relative;
+            
+        }.slide3{
+                background: url("https://m.media-amazon.com/images/I/41xVhz5sL1L._SY445_SX342_.jpg") center top / cover no-repeat;
+                width: 25%;
+                float: left;
+                height: 500px; 
+                position: relative;
+                
+
+        }
+
+
+        .slide::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit; 
+           background: rgba(0, 0, 0, 0.8); 
+        
+        
+        
+        
+        }
+        .slide1::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit; 
+           background: rgba(0, 0, 0, 0.8); 
+        
+        
+        
+        
+        }.slide2::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit; 
+           background: rgba(0, 0, 0, 0.8); 
+        
+        
+        
+        
+        }
+        .slide3::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit; 
+           background: rgba(0, 0, 0, 0.8); 
+        
+        
+        
+        
+        }
+        img {
+        width:  221px;
+        height: auto;
+        position: relative;
+        z-index: 1;
+        left:85px;
+        top: 70px;
+}
+    
+.slide1 h1{
+      
+      position: relative;
+      left: 99px;
+  }
+  .slide3 h1{
+    position: relative;
+    left: 109px;
+  }
+    
+    #text {
+        text-align: center;
+        font-size: 3em;
+        color: white;
+        position: relative;
+        bottom: 246px;
+        z-index: 1;
+    }
+   
+    
+    #text2 {
+        display: block;
+        margin: auto;
+        color: white;
+        width: 380px;
+        
+        font-size: 1.2em;
+        position: relative;
+        z-index: 1;
+        bottom: 206px;
+        left: 66px;
+    }
+    
+    #botao1 {
+        width: 168px;
+        display: block;
+        margin: auto;
+        height: 26px;
+        background-color: rgb(48, 48, 136);
+        color: white;
+        text-align: center;
+        line-height: 26px;
+        text-decoration: none;
+        border-radius: 13px;
+        position: relative;
+        top: -184px;
+        
+    }
+        @keyframes slide {
+            0%{
+                left:0;
+            }
+            10%{
+                left:0;
+            }
+            20%{
+                left:-100%;
+            }
+            30%{
+                left:-100%;
+            }
+            40%{
+                left:-200%;
+            }
+            50%{
+                left:-200%;
+            }
+            65%{
+                left:-300%;
+            }
+            66%{
+                left:-200%;
+            }
+            74%{
+                left:-200%;
+            }
+            75%{
+                left:-100%;
+            }
+            85%{
+                left:-100%;
+            }
+            90%{
+                left:0;
+            }
+            1000%{
+                left:0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="slider">
+ <figure>
+    
+    
+     <div class="slide">
+        <div id="img2">
+            <img src="https://i1.wp.com/lightnovelbrasil.com/wp-content/uploads/2021/07/download.jpg?resize=370,500" alt="">
+            <h1 id="text">Solo Leveling</h1>
+            <p id="text2"> Sung Jinwoo (Aleks Le), um caçador fraco, sobrevive a uma batalha mortal e é escolhido pelo misterioso 'Sistema', que lhe concede poderes incríveis, transformando-o no caçador mais forte.</p>
+            <a id="botao1" href="#"> Comprar</a>
+        
+        </div>
+          
+       
+     </div>
+
+     <div class="slide1">
+        <div id="img2">
+            <img src="https://flowermangas.com/wp-content/uploads/a-stepmothers-marchen-1596.jpg" alt="">
+            <h1 id="text">A Stepmother’s Märchen</h1>
+            <p id="text2"> A viúva de ferro, a viúva-aranha, a caçadora de homens, a bruxa do castelo de Neuschwanstein, a vergonha das nobres damas… Essas eram todas as palavras usadas para descrever a marquesa Shuli Von Neuschwanstein.</p>
+            <a id="botao1" href="#"> Comprar</a>
+        </div>
+       
+      
+ </div>
+ <div class="slide2">
+    <img src="https://img.mangaschan.com/uploads/manga-images/s/sousou-no-frieren/Sousou%20no%20Frieren%20mangaschan.webp" alt="">
+    <h1 id="text">Frieren</h1>
+    <p id="text2"> Frieren era um membro da party do herói que derrotou o Rei Demônio. Uma maga elfa, há algo sobre ela que a distingue dos outros membros.</p>
+    <a id="botao1" href="#"> Comprar</a>
+
+</div>
+<div class="slide3">
+    <img src="https://m.media-amazon.com/images/I/41xVhz5sL1L._SY445_SX342_.jpg "alt="">
+    <h1 id="text">7 Maridos de Evelyn HUgo</h1>
+    <p id="text2"> Evelyn Hugo é uma mulher de armas, excêntrica e arrebatadora. Uma mulher que entre os anos 50 e 70 fez de tudo para poder realizar os seus sonhos numa época conservadora. Este livro mostra-nos um pouco como era/é a vida em Hollywood e as coisas que por vezes são necessárias fazer para atingir um fim.</p>
+    <a id="botao1" href="#"> Comprar</a>
+
+
+</div>
+
+   
+
+ </figure>
+</div>
+    
+</body>
+</html>

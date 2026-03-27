@@ -1,0 +1,231 @@
+*{
+    box-sizing: border-box;
+    margin: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+p{
+    color: rgb(58, 109, 109);
+    
+}
+body{
+    background-color: #16151D;
+}
+main{
+    
+    margin: auto;
+    width: 500px;
+    margin: auto;
+}
+select{
+    background-color: rgb(41, 36, 36);
+    color: white;
+    padding: 10px ;
+}
+#explic{
+    height: 100px;
+    transition: 0.3s;
+    border: 2px solid;
+    color: white;
+}
+    
+#explic:hover{
+    transform: scale(4.1);
+}
+#frase{
+    display:block;
+    text-align: center;
+}
+#estagio{
+    margin-top: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    
+    
+    
+}
+.escolha{
+    height: 100px;
+    margin: 30px;
+    transition: 0.5s;
+}
+.escolha:hover{
+    transform: scale(1.1);
+}
+.card{
+    box-shadow: 2px 2px 6px 2px;
+    border-radius: 11px;
+}
+#cartao{
+    float: right;
+    text-align: center;
+    display: none;
+
+    
+    
+}
+.numerocard{
+    width: 250px;
+    border: 2px solid #303088;
+    padding: 10px;
+    border-radius: 10px;
+    background-color:rgb(41, 36, 36);
+}
+.nomecard{
+    width: 250px;
+    border: 2px solid rgb(98, 98, 175);
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(41, 36, 36);
+}
+.cvvcard{
+    width: 100px;
+    border: 2px solid rgb(98, 98, 175);
+    border-radius: 10px;
+    background-color: rgb(41, 36, 36);
+}
+.validadecard{
+    width: 100px;
+    border: 2px solid rgb(98, 98, 175);
+    border-radius: 10px;
+    background-color: rgb(41, 36, 36);
+
+}
+.encaminhar{
+    background-color: rgb(98, 98, 175);
+    text-align: center;
+    margin: auto;
+    width: 250px;
+    font-size: 25px;
+    padding: 5px;
+    border-radius: 5px;
+    transition: 0.2s;
+
+}
+.encaminhar:hover{
+    transform: scale(1.1);
+}
+
+
+
+
+#pix{
+    margin-top: 90px;
+    display: none;
+    
+}
+#qr{
+    position: relative;
+    margin-left: 49px;
+
+}
+#dentro{
+    background-color: rgb(41, 36, 36);
+    width: 439px;
+    border-radius: 15px;
+    border: 2px solid  rgb(98, 98, 175);
+    
+    
+    
+}
+#baba{
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+}
+.pp{
+    font-size: 20px;
+    color:  rgb(98, 98, 175);
+    font-size: 30px;
+}
+.bb{
+    font-size: 15px;
+    color: rgb(94, 94, 141);
+    font-size: 20px;
+    
+}
+#cc{
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    #estagio {
+        text-align: center;
+        display: block;
+    }
+
+    main {
+        width: 95%;
+        max-width: 500px;
+    }
+
+    #dentro {
+        width: 100%;
+        max-width: 439px;
+    }
+
+    .escolha {
+        height: 80px;
+        margin: 20px;
+    }
+
+    .numerocard,
+    .nomecard {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .encaminhar {
+        width: 100%;
+        max-width: 250px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    #dentro {
+        width: 100%;
+    }
+
+    .escolha {
+        height: 60px;
+        margin: 15px;
+    }
+
+    .pp {
+        font-size: 22px;
+    }
+
+    .bb {
+        font-size: 16px;
+    }
+
+    #baba {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .encaminhar {
+        font-size: 18px;
+        padding: 4px;
+    }
+
+    .numerocard,
+    .nomecard {
+        width: 100%;
+    }
+
+    .cvvcard,
+    .validadecard {
+        width: 80px;
+    }
+
+    #qr {
+        margin-left: 0;
+    }
+}

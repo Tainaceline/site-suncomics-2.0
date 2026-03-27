@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votação - Sun.Comic</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #16151D;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background-color: rgb(48, 48, 136);
+            width: 100%;
+            height: 65px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 18px;
+            box-sizing: border-box;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        #logo {
+            color: white;
+            font-size: 1.6em;
+            font-weight: bold;
+        }
+
+        .botao-voltar-desktop {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+            font-size: 0.9em;
+        }
+
+        .botao-voltar-desktop:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Botão Voltar Mobile - POSICIONADO FORA DO HEADER */
+        .botao-voltar-mobile {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            background-color: rgba(48, 48, 136, 0.9);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: background-color 0.3s;
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        .botao-voltar-mobile:hover {
+            background-color: rgba(48, 48, 136, 1);
+        }
+
+        #ipesquisa {
+            padding: 7px 14px;
+            border-radius: 18px;
+            border: none;
+            width: 220px;
+            font-size: 0.95em;
+        }
+
+        .pc {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .pc a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: opacity 0.3s;
+            font-size: 1em;
+        }
+
+        .pc a:hover {
+            opacity: 0.8;
+        }
+
+        .material-symbols-outlined {
+            font-size: 1.3em;
+        }
+
+        /* Menu Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 65px;
+            right: 0;
+            background-color: rgb(48, 48, 136);
+            width: 200px;
+            border-radius: 0 0 0 10px;
+            box-shadow: -2px 5px 10px rgba(0,0,0,0.3);
+            z-index: 99;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: background-color 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        /* Conteúdo Principal */
+        .votacao-container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 18px;
+            flex: 1;
+        }
+
+        .votacao-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .votacao-header h1 {
+            font-size: 2.3em;
+            margin-bottom: 12px;
+            color: white;
+        }
+
+        .votacao-header p {
+            font-size: 1.15em;
+            color: #a3a3a3;
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .opcoes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .opcao-card {
+            background-color: #222222;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .opcao-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* IMAGENS REDUZIDAS */
+        .opcao-imagem {
+            height: 280px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1a1a1a;
+        }
+
+        .opcao-imagem img {
+            width: auto;
+            height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            transition: transform 0.5s;
+        }
+
+        .opcao-card:hover .opcao-imagem img {
+            transform: scale(1.05);
+        }
+
+        .opcao-info {
+            padding: 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .opcao-info h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .opcao-info p {
+            color: #a3a3a3;
+            margin-bottom: 18px;
+            flex: 1;
+            font-size: 1em;
+            line-height: 1.5;
+        }
+
+        .botao-votar {
+            background-color: rgb(48, 48, 136);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 6px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 100%;
+            font-weight: 600;
+        }
+
+        .botao-votar:hover {
+            background-color: rgb(60, 60, 160);
+            transform: translateY(-2px);
+        }
+
+        .botao-votar:active {
+            transform: translateY(0);
+        }
+
+        /* Resultados */
+        .resultados {
+            background-color: #222222;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 35px;
+            display: none;
+        }
+
+        .resultados h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.9em;
+            color: white;
+        }
+
+        .resultado-item {
+            margin-bottom: 22px;
+        }
+
+        .resultado-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .resultado-header h3 {
+            font-size: 1.2em;
+            color: white;
+        }
+
+        .resultado-header span {
+            color: #a3a3a3;
+            font-weight: bold;
+            font-size: 1.05em;
+        }
+
+        .barra-progresso {
+            height: 24px;
+            background-color: #16151D;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progresso {
+            height: 100%;
+            background-color: rgb(48, 48, 136);
+            border-radius: 5px;
+            transition: width 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .agradecimento {
+            text-align: center;
+            margin-top: 28px;
+            padding-top: 18px;
+            border-top: 1px solid #333;
+        }
+
+        .agradecimento p {
+            font-size: 1.1em;
+            color: #a3a3a3;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222222;
+            width: 100%;
+            padding: 18px;
+            margin-top: 45px;
+        }
+
+        #cor2 {
+            background-color: rgb(48, 48, 136);
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        #termodu {
+            color: white;
+            text-decoration: none;
+            font-size: 1.05em;
+        }
+
+        footer p {
+            text-align: center;
+            color: #a3a3a3;
+            font-size: 0.95em;
+            line-height: 1.5;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .votacao-container {
+                max-width: 95%;
+            }
+            
+            .opcoes-grid {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            }
+        }
+
+        @media (max-width: 900px) {
+            .pc {
+                display: none;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                height: 60px;
+                padding: 0 15px;
+            }
+
+            #logo {
+                font-size: 1.5em;
+            }
+
+            .botao-voltar-desktop {
+                display: none; /* Esconde no mobile */
+            }
+
+            .botao-voltar-mobile {
+                display: flex; /* Mostra no mobile */
+            }
+
+            #ipesquisa {
+                width: 180px;
+                font-size: 0.9em;
+                padding: 6px 12px;
+            }
+
+            .votacao-header h1 {
+                font-size: 2em;
+            }
+
+            .votacao-header p {
+                font-size: 1.05em;
+            }
+
+            .opcoes-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .opcao-imagem {
+                height: 240px;
+            }
+            
+            .mobile-menu {
+                top: 60px;
+            }
+
+            /* BOTÃO VOTAR MENOR NO MOBILE */
+            .botao-votar {
+                padding: 10px 15px;
+                font-size: 0.95em;
+            }
+        }
+
+        @media (max-width: 600px) {
+            #ipesquisa {
+                width: 150px;
+            }
+            
+            .votacao-header h1 {
+                font-size: 1.8em;
+            }
+            
+            .opcao-imagem {
+                height: 220px;
+            }
+            
+            .resultados {
+                padding: 20px;
+            }
+            
+            .resultados h2 {
+                font-size: 1.7em;
+            }
+
+            /* BOTÃO VOTAR AINDA MENOR EM CELULARES */
+            .botao-votar {
+                padding: 9px 14px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 12px;
+                gap: 10px;
+            }
+            
+            .header-left {
+                width: 100%;
+                justify-content: space-between;
+                margin-bottom: 8px;
+            }
+            
+            #ipesquisa {
+                width: 100%;
+                order: 3;
+                margin-top: 8px;
+            }
+            
+            .hamburger {
+                order: 2;
+            }
+            
+            .votacao-container {
+                margin: 20px auto;
+            }
+            
+            .votacao-header {
+                margin-bottom: 25px;
+            }
+            
+            .opcao-info {
+                padding: 15px;
+            }
+            
+            .opcao-info h3 {
+                font-size: 1.3em;
+            }
+            
+            footer {
+                padding: 15px;
+            }
+
+            /* BOTÃO VOTAR MENOR EM CELULARES PEQUENOS */
+            .botao-votar {
+                padding: 8px 12px;
+                font-size: 0.85em;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .opcao-imagem {
+                height: 200px;
+            }
+            
+            .votacao-header h1 {
+                font-size: 1.6em;
+            }
+            
+            .resultados h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="botao-voltar-desktop">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Voltar
+            </a>
+            <div id="logo">Sun.Comic</div>
+        </div>
+        
+        <form action="" method="post">
+            <input type="text" name="pesquisa" id="ipesquisa" placeholder="Procurar...">
+        </form>
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">
+                <span class="material-symbols-outlined">home</span>
+                Página Inicial
+            </a>
+            <a href="carrinho.html">
+                <span class="material-symbols-outlined">shopping_cart</span>
+                Carrinho
+            </a>
+            <a href="form.html">
+                <span class="material-symbols-outlined">person</span>
+                Login
+            </a>
+            <a href="ajuda.html">
+                <span class="material-symbols-outlined">help</span>
+                Ajuda?
+            </a>
+            <a href="manhua.html">
+                <span class="material-symbols-outlined">menu_book</span>
+                Manhua
+            </a>
+            <a href="manga.html">
+                <span class="material-symbols-outlined">auto_stories</span>
+                Mangás
+            </a>
+        </div>
+        
+        <div class="pc">
+            <a href="carrinho.html">
+                <span class="material-symbols-outlined">shopping_cart</span>
+                Carrinho
+            </a>
+            <a href="form.html">
+                <span class="material-symbols-outlined">person</span>
+                Login
+            </a>
+            <a href="ajuda.html">
+                <span class="material-symbols-outlined">help</span>
+                Ajuda?
+            </a>
+        </div>
+    </header>
+
+    <!-- BOTÃO VOLTAR MOBILE - POSICIONADO FORA DO HEADER -->
+    <a href="index.html" class="botao-voltar-mobile">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Voltar para Página Inicial
+    </a>
+    
+    <div class="votacao-container">
+        <div class="votacao-header">
+            <h1>Votação de Novas Obras</h1>
+            <p>Ajude-nos a escolher quais obras adicionaremos em nossa próxima atualização. Sua opinião é muito importante!</p>
+        </div>
+        
+        <div class="opcoes-grid">
+            <div class="opcao-card">
+                <div class="opcao-imagem">
+                    <img src="imagens/dream.jpg" alt="Dreaming Freedom">
+                </div>
+                <div class="opcao-info">
+                    <h3>Dreaming Freedom</h3>
+                    <p>Uma emocionante história sobre liberdade e autodescoberta em um mundo de fantasia cheio de reviravoltas.</p>
+                    <button class="botao-votar" onclick="votar('dreaming-freedom')">Votar</button>
+                </div>
+            </div>
+            
+            <div class="opcao-card">
+                <div class="opcao-imagem">
+                    <img src="imagens/revelation.jpg" alt="Revelation of Youth">
+                </div>
+                <div class="opcao-info">
+                    <h3>Revelation of Youth</h3>
+                    <p>Uma narrativa comovente sobre juventude, amadurecimento e as revelações que moldam nossas vidas.</p>
+                    <button class="botao-votar" onclick="votar('revelation-of-youth')">Votar</button>
+                </div>
+            </div>
+            
+            <div class="opcao-card">
+                <div class="opcao-imagem">
+                    <img src="https://m.media-amazon.com/images/I/91OvTwFvWKL._SY342_.jpg" alt="The Lost Diary">
+                </div>
+                <div class="opcao-info">
+                    <h3>The Lost Diary</h3>
+                    <p>Mistério e intriga se entrelaçam nesta história cativante sobre um diário perdido com segredos impactantes.</p>
+                    <button class="botao-votar" onclick="votar('the-lost-diary')">Votar</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="resultados" id="resultados">
+            <h2>Resultados da Votação</h2>
+            
+            <div class="resultado-item">
+                <div class="resultado-header">
+                    <h3>Dreaming Freedom</h3>
+                    <span id="porc-dreaming-freedom">30%</span>
+                </div>
+                <div class="barra-progresso">
+                    <div class="progresso" id="barra-dreaming-freedom" style="width: 30%">30%</div>
+                </div>
+            </div>
+            
+            <div class="resultado-item">
+                <div class="resultado-header">
+                    <h3>Revelation of Youth</h3>
+                    <span id="porc-revelation-of-youth">20%</span>
+                </div>
+                <div class="barra-progresso">
+                    <div class="progresso" id="barra-revelation-of-youth" style="width: 20%">20%</div>
+                </div>
+            </div>
+            
+            <div class="resultado-item">
+                <div class="resultado-header">
+                    <h3>The Lost Diary</h3>
+                    <span id="porc-the-lost-diary">50%</span>
+                </div>
+                <div class="barra-progresso">
+                    <div class="progresso" id="barra-the-lost-diary" style="width: 50%">50%</div>
+                </div>
+            </div>
+            
+            <div class="agradecimento">
+                <p>Obrigado por participar da votação! Sua opinião é fundamental para o crescimento do Sun.Comic.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div id="cor2">
+            <a id="termodu" href="termo.html">Termos de Uso</a>
+        </div>
+        <p>Direitos autorais e marcas para mangás, e outros materiais promocionais são mantidos por seus respectivos proprietários e a sua utilização é permitida nos termos da cláusula de uso justo da Lei de Direitos Autorais Americana.</p>
+    </footer>
+
+    <script>
+        // Sistema de Votação
+        class Votacao {
+            constructor() {
+                this.opcoes = {
+                    'dreaming-freedom': 30,
+                    'revelation-of-youth': 20,
+                    'the-lost-diary': 50
+                };
+                this.votou = false;
+                this.carregar();
+            }
+
+            carregar() {
+                const salvo = localStorage.getItem('votosSunComic');
+                if (salvo) {
+                    const dados = JSON.parse(salvo);
+                    this.opcoes = dados.opcoes;
+                    this.votou = dados.votou;
+                    
+                    if (this.votou) {
+                        this.mostrarResultados();
+                    }
+                }
+                this.atualizar();
+            }
+
+            salvar() {
+                localStorage.setItem('votosSunComic', JSON.stringify({
+                    opcoes: this.opcoes,
+                    votou: this.votou
+                }));
+            }
+
+            votar(opcao) {
+                if (this.votou) {
+                    alert('Você já votou! Obrigado por participar.');
+                    return;
+                }
+                
+                this.opcoes[opcao]++;
+                this.votou = true;
+                
+                this.salvar();
+                this.atualizar();
+                this.mostrarResultados();
+                
+                // Efeito visual de confirmação
+                const botao = event.target;
+                botao.textContent = 'Voto Registrado!';
+                botao.style.backgroundColor = '#2e7d32';
+                botao.disabled = true;
+            }
+
+            atualizar() {
+                const total = Object.values(this.opcoes).reduce((a, b) => a + b, 0);
+                
+                for (const [opcao, votos] of Object.entries(this.opcoes)) {
+                    const porcentagem = Math.round((votos / total) * 100);
+                    const barra = document.getElementById(`barra-${opcao}`);
+                    const texto = document.getElementById(`porc-${opcao}`);
+                    
+                    if (barra) {
+                        barra.style.width = `${porcentagem}%`;
+                        barra.textContent = `${porcentagem}%`;
+                    }
+                    if (texto) texto.textContent = `${porcentagem}%`;
+                }
+            }
+
+            mostrarResultados() {
+                document.querySelectorAll('.botao-votar').forEach(botao => {
+                    botao.textContent = 'Voto Registrado!';
+                    botao.style.backgroundColor = '#2e7d32';
+                    botao.disabled = true;
+                });
+                
+                document.getElementById('resultados').style.display = 'block';
+                
+                // Rolagem suave para os resultados
+                setTimeout(() => {
+                    document.getElementById('resultados').scrollIntoView({ 
+                        behavior: 'smooth' 
+                    });
+                }, 500);
+            }
+
+            resetar() {
+                if (confirm('Deseja realmente resetar a votação? Isso apagará todos os votos.')) {
+                    localStorage.removeItem('votosSunComic');
+                    location.reload();
+                }
+            }
+        }
+
+        // Menu Hamburger
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            // Animação do hamburger
+            this.classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar fora
+        document.addEventListener('click', function(event) {
+            if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+
+        // Inicializar sistema de votação
+        const votacao = new Votacao();
+
+        // Funções globais para uso nos botões
+        function votar(opcao) {
+            votacao.votar(opcao);
+        }
+
+        function resetarVotacao() {
+            votacao.resetar();
+        }
+    </script>
+</body>
+</html>

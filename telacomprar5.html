@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jujutsu Kaisen - Sun.Comic</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="estilos/expeci.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="botao-voltar-desktop"><span class="material-symbols-outlined">arrow_back</span> Voltar</a>
+            <div id="logo">Sun.Comic</div>
+        </div>
+        <form action="" method="post"><input type="text" name="pesquisa" id="ipesquisa" placeholder="Procurar..."></form>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html"><span class="material-symbols-outlined">home</span> Página Inicial</a>
+            <a href="carrinho.html"><span class="material-symbols-outlined">shopping_cart</span> Carrinho</a>
+            <a href="form.html"><span class="material-symbols-outlined">person</span> Login</a>
+            <a href="ajuda.html"><span class="material-symbols-outlined">help</span> Ajuda?</a>
+            <a href="manga.html"><span class="material-symbols-outlined">auto_stories</span> Mangás</a>
+            <a href="manhua.html"><span class="material-symbols-outlined">menu_book</span> Manhua</a>
+        </div>
+        <div class="pc">
+            <a href="carrinho.html"><span class="material-symbols-outlined">shopping_cart</span> Carrinho</a>
+            <a href="form.html"><span class="material-symbols-outlined">person</span> Login</a>
+            <a href="ajuda.html"><span class="material-symbols-outlined">help</span> Ajuda?</a>
+        </div>
+    </header>
+    <a href="index.html" class="botao-voltar-mobile"><span class="material-symbols-outlined">arrow_back</span> Voltar para Página Inicial</a>
+
+    <div class="produto-container">
+        <div class="produto-layout">
+            <div class="produto-imagem">
+                <img src="https://m.media-amazon.com/images/I/71sicR3ldaL._SY466_.jpg" alt="Jujutsu Kaisen">
+            </div>
+            <div class="produto-detalhes">
+                <h1>Jujutsu Kaisen</h1>
+                <div class="produto-rating"><span class="estrelas">⭐⭐⭐⭐⭐</span><span class="nota">5.00</span></div>
+                <div class="produto-info-grid">
+                    <span class="label">Status</span><span class="valor">Completo</span>
+                    <span class="label">Tipo</span><span class="valor">Mangá</span>
+                    <span class="label">Lançado em</span><span class="valor">2018</span>
+                    <span class="label">Autor</span><span class="valor">Gege Akutami</span>
+                    <span class="label">Artista</span><span class="valor">Fumihiko Takaba</span>
+                </div>
+                <div class="produto-selects">
+                    <select><option>Volume 1</option><option>Volume 2</option><option>Volume 3</option><option>Volume 4</option><option>Volume 5</option></select>
+                    <select><option>Livro Físico</option><option>Livro Online</option></select>
+                </div>
+                <div class="produto-sinopse">
+                    <h2>Sinopse</h2>
+                    <p>Jujutsu Kaisen é uma jornada épica que começa com Yuji Itadori, um estudante colegial comum que tem sua vida transformada após um encontro fatídico com o sobrenatural. Quando Yuji acidentalmente liberta uma terrível maldição contida em um artefato amaldiçoado, ele se vê imerso em um mundo de trevas e perigo.</p>
+                </div>
+                <div class="produto-preco">R$66,00</div>
+                <div class="produto-botoes">
+                    <button class="btn-comprar"><span class="material-symbols-outlined">shopping_bag</span> Comprar</button>
+                    <button class="btn-carrinho"><span class="material-symbols-outlined">add_shopping_cart</span> Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+        <div class="comentarios-section">
+            <h2>Comentários</h2>
+            <div class="comentario-input"><input type="text" placeholder="Faça seu comentário..."></div>
+            <div class="comentario-item">
+                <div class="comentario-avatar"><img src="https://cdn-icons-png.flaticon.com/512/6378/6378141.png" alt="Avatar"></div>
+                <div class="comentario-conteudo"><div class="nome">Hefren</div><div class="rating">⭐⭐⭐⭐⭐</div><div class="texto">comprei esse manhwa, chegou em um bom periodo de tempo, achei o produto uma merda sem precendentes, mas a sun comics é incrivel e o hefren merece aumento</div></div>
+            </div>
+            <div class="comentario-item">
+                <div class="comentario-avatar"><img src="https://cdn-icons-png.flaticon.com/512/6378/6378141.png" alt="Avatar"></div>
+                <div class="comentario-conteudo"><div class="nome">Taina</div><div class="rating">⭐⭐⭐⭐⭐</div><div class="texto">muito bom</div></div>
+            </div>
+            <div class="comentario-item">
+                <div class="comentario-avatar"><img src="https://cdn-icons-png.flaticon.com/512/6378/6378141.png" alt="Avatar"></div>
+                <div class="comentario-conteudo"><div class="nome">Samuel</div><div class="rating">⭐⭐⭐⭐⭐</div><div class="texto">é legalzinho</div></div>
+            </div>
+        </div>
+    </div>
+    <footer><div id="cor2"><a id="termodu" href="termo.html">Termos de Uso</a></div><p>Direitos autorais e marcas para mangás, e outros materiais promocionais são mantidos por seus respectivos proprietários e a sua utilização é permitida nos termos da cláusula de uso justo da Lei de Direitos Autorais Americana.</p></footer>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', function() { mobileMenu.classList.toggle('active'); this.classList.toggle('active'); });
+        document.addEventListener('click', function(event) { if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) { mobileMenu.classList.remove('active'); hamburger.classList.remove('active'); } });
+    </script>
+</body>
+</html>
