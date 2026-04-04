@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Os 7 Maridos de Evelyn Hugo - Sun.Comic</title>
+    <title>Vossa Majestade, Por Favor Não Me Mate Novamente - Sun.Comic</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <link rel="stylesheet" href="estilos/expeci.css">
 </head>
@@ -31,20 +31,20 @@
     </header>
     <a href="index.html" class="botao-voltar-mobile"><span class="material-symbols-outlined">arrow_back</span> Voltar para Página Inicial</a>
 
-    <div class="produto-container" data-product-id="2">
+    <div class="produto-container" data-product-id="8">
         <div class="produto-layout">
             <div class="produto-imagem">
-                <img src="https://m.media-amazon.com/images/I/41xVhz5sL1L._SY445_SX342_.jpg" alt="Os 7 Maridos de Evelyn Hugo" id="produto-img">
+                <img src="imagens/YOUR_MAJESTYN_PLEASE_DONT_KIL_1680260061122296351SK-V11680260062B.jpg" alt="Vossa Majestade, Por Favor Não Me Mate Novamente" id="produto-img">
             </div>
             <div class="produto-detalhes">
-                <h1>Os 7 Maridos de Evelyn Hugo</h1>
+                <h1>Vossa Majestade, Por Favor Não Me Mate Novamente</h1>
                 <div class="produto-rating"><span class="estrelas">⭐⭐⭐⭐⭐</span><span class="nota">5.00</span></div>
                 <div class="produto-info-grid">
                     <span class="label">Status</span><span class="valor">Completo</span>
-                    <span class="label">Tipo</span><span class="valor">Livro</span>
-                    <span class="label">Lançado em</span><span class="valor">2017</span>
-                    <span class="label">Autor</span><span class="valor">Taylor Jenkins</span>
-                    <span class="label">Artista</span><span class="valor">Taylor Jenkins</span>
+                    <span class="label">Tipo</span><span class="valor">Manhwa</span>
+                    <span class="label">Lançado em</span><span class="valor">2022</span>
+                    <span class="label">Autor</span><span class="valor">Autor</span>
+                    <span class="label">Artista</span><span class="valor">Artista</span>
                 </div>
                 <div class="produto-selects">
                     <select><option>Volume 1</option><option>Volume 2</option><option>Volume 3</option><option>Volume 4</option><option>Volume 5</option></select>
@@ -52,9 +52,9 @@
                 </div>
                 <div class="produto-sinopse">
                     <h2>Sinopse</h2>
-                    <p>Evelyn Hugo é uma mulher de armas, excêntrica e arrebatadora. Uma mulher que entre os anos 50 e 70 fez de tudo para poder realizar os seus sonhos numa época conservadora. Este livro mostra-nos um pouco como era/é a vida em Hollywood e as coisas que por vezes são necessárias fazer para atingir um fim.</p>
+                    <p>Uma aventura épica cheia de ação, humor e reviravoltas surpreendentes que vai deixar você querendo mais!</p>
                 </div>
-                <div class="produto-preco">R$70,00</div>
+                <div class="produto-preco">R$45,00</div>
                 <div class="produto-botoes">
                     <button class="btn-comprar" id="btn-comprar"><span class="material-symbols-outlined">shopping_bag</span> Comprar</button>
                     <button class="btn-carrinho" id="btn-carrinho"><span class="material-symbols-outlined">add_shopping_cart</span> Adicionar ao Carrinho</button>
@@ -66,11 +66,11 @@
             <div class="comentario-input"><input type="text" placeholder="Faça seu comentário..."></div>
             <div class="comentario-item">
                 <div class="comentario-avatar"><img src="https://cdn-icons-png.flaticon.com/512/6378/6378141.png" alt="Avatar"></div>
-                <div class="comentario-conteudo"><div class="nome">Hefren</div><div class="rating">⭐⭐⭐⭐⭐</div><div class="texto">me identifico com a personagem, mas acho que ela so pensa besteira</div></div>
+                <div class="comentario-conteudo"><div class="nome">Hefren</div><div class="rating">⭐⭐⭐⭐⭐</div><div class="texto">que série incrível, pega bastante na história</div></div>
             </div>
             <div class="comentario-item">
                 <div class="comentario-avatar"><img src="https://cdn-icons-png.flaticon.com/512/6378/6378141.png" alt="Avatar"></div>
-                <div class="comentario-conteudo"><div class="nome">Taina</div><div class="rating">⭐⭐⭐⭐⭐</div><div class="texto">melhor livro da minha vida</div></div>
+                <div class="comentario-conteudo"><div class="nome">Taina</div><div class="rating">⭐⭐⭐⭐⭐</div><div class="texto">recomendo muito, super vale a pena</div></div>
             </div>
             <div class="comentario-item">
                 <div class="comentario-avatar"><img src="https://cdn-icons-png.flaticon.com/512/6378/6378141.png" alt="Avatar"></div>
@@ -81,20 +81,12 @@
     <footer><div id="cor2"><a id="termodu" href="termo.html">Termos de Uso</a></div><p>Direitos autorais e marcas para mangás, e outros materiais promocionais são mantidos por seus respectivos proprietários e a sua utilização é permitida nos termos da cláusula de uso justo da Lei de Direitos Autorais Americana.</p></footer>
     <script src="js/produtos.js"></script>
     <script>
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
+        const hamburger = document.getElementById('hamburger'); const mobileMenu = document.getElementById('mobileMenu');
         hamburger.addEventListener('click', function() { mobileMenu.classList.toggle('active'); this.classList.toggle('active'); });
         document.addEventListener('click', function(event) { if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) { mobileMenu.classList.remove('active'); hamburger.classList.remove('active'); } });
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const container = document.querySelector('.produto-container');
-            const productId = parseInt(container.getAttribute('data-product-id')) || 2;
-            preencherDadosProduto(productId);
-            const btnCarrinho = document.getElementById('btn-carrinho');
-            if (btnCarrinho) { btnCarrinho.addEventListener('click', function() { adicionarAoCarrinho(productId); }); }
-            const btnComprar = document.getElementById('btn-comprar');
-            if (btnComprar) { btnComprar.addEventListener('click', function() { const produto = obterProduto(productId); if (produto) { alert(`Iniciando compra de ${produto.nome} por R$${produto.preco.toFixed(2)}`); } }); }
-        });
+        document.addEventListener('DOMContentLoaded', function() { const container = document.querySelector('.produto-container'); const productId = parseInt(container.getAttribute('data-product-id')) || 8; preencherDadosProduto(productId);
+            const btnCarrinho = document.getElementById('btn-carrinho'); if (btnCarrinho) { btnCarrinho.addEventListener('click', function() { adicionarAoCarrinho(productId); }); }
+            const btnComprar = document.getElementById('btn-comprar'); if (btnComprar) { btnComprar.addEventListener('click', function() { const produto = obterProduto(productId); if (produto) { alert(`Iniciando compra de ${produto.nome} por R$${produto.preco.toFixed(2)}`); } }); } });
     </script>
 </body>
 </html>

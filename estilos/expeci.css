@@ -414,7 +414,7 @@ footer {
     background-color: #222222;
     width: 100%;
     padding: 18px;
-    margin-top: 45px;
+    margin-top: 20px;
 }
 
 #cor2 {
@@ -424,7 +424,7 @@ footer {
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 
 #termodu {
@@ -559,8 +559,15 @@ footer p {
     .btn-comprar, .btn-carrinho {
         width: 100%;
         justify-content: center;
-        padding: 12px 20px;
-        font-size: 1em;
+        padding: 15px 20px;
+        font-size: 1.05em;
+        flex: 1;
+    }
+
+    .produto-botoes {
+        flex-direction: column !important;
+        gap: 12px !important;
+        width: 100%;
     }
 
     .produto-info-grid {
@@ -569,12 +576,25 @@ footer p {
         padding: 12px;
     }
 
+    .produto-selects {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    .produto-selects select {
+        width: 100% !important;
+    }
+
     .comentarios-section {
         padding: 18px;
     }
 
     .comentario-input {
         flex-direction: column;
+    }
+
+    .comentario-input input {
+        width: 100% !important;
     }
 
     footer {

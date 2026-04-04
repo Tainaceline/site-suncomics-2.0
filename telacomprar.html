@@ -42,10 +42,10 @@
         Voltar para Página Inicial
     </a>
 
-    <div class="produto-container">
+    <div class="produto-container" data-product-id="1">
         <div class="produto-layout">
             <div class="produto-imagem">
-                <img src="https://img.mangaschan.com/uploads/manga-images/s/sousou-no-frieren/Sousou%20no%20Frieren%20mangaschan.webp" alt="Sousou no Frieren">
+                <img src="https://img.mangaschan.com/uploads/manga-images/s/sousou-no-frieren/Sousou%20no%20Frieren%20mangaschan.webp" alt="Sousou no Frieren" id="produto-img">
             </div>
             <div class="produto-detalhes">
                 <h1>Sousou no Frieren</h1>
@@ -84,11 +84,11 @@
                 </div>
                 <div class="produto-preco">R$70,00</div>
                 <div class="produto-botoes">
-                    <button class="btn-comprar">
+                    <button class="btn-comprar" id="btn-comprar">
                         <span class="material-symbols-outlined">shopping_bag</span>
                         Comprar
                     </button>
-                    <button class="btn-carrinho">
+                    <button class="btn-carrinho" id="btn-carrinho">
                         <span class="material-symbols-outlined">add_shopping_cart</span>
                         Adicionar ao Carrinho
                     </button>
@@ -133,7 +133,9 @@
         <p>Direitos autorais e marcas para mangás, e outros materiais promocionais são mantidos por seus respectivos proprietários e a sua utilização é permitida nos termos da cláusula de uso justo da Lei de Direitos Autorais Americana.</p>
     </footer>
 
+    <script src="js/produtos.js"></script>
     <script>
+        // Menu hamburger
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
         hamburger.addEventListener('click', function() {
@@ -144,6 +146,33 @@
             if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
                 mobileMenu.classList.remove('active');
                 hamburger.classList.remove('active');
+            }
+        });
+
+        // Preencher dados dinâmicos do produto
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.produto-container');
+            const productId = parseInt(container.getAttribute('data-product-id')) || 1;
+            
+            preencherDadosProduto(productId);
+            
+            // Adicionar funcionalidade aos botões
+            const btnCarrinho = document.getElementById('btn-carrinho');
+            if (btnCarrinho) {
+                btnCarrinho.addEventListener('click', function() {
+                    adicionarAoCarrinho(productId);
+                });
+            }
+            
+            const btnComprar = document.getElementById('btn-comprar');
+            if (btnComprar) {
+                btnComprar.addEventListener('click', function() {
+                    const produto = obterProduto(productId);
+                    if (produto) {
+                        alert(`Iniciando compra de ${produto.nome} por R$${produto.preco.toFixed(2)}`);
+                        // Aqui você pode redirecionar para a página de pagamento
+                    }
+                });
             }
         });
     </script>
